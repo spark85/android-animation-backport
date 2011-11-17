@@ -1,63 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <declare-styleable name="Animation">
-        <!-- Defines the interpolator used to smooth the animation movement in time. -->
-        <attr name="interpolator" format="reference"/>
-        <!-- When set to true, the value of fillBefore is taken into account. -->
-        <attr name="fillEnabled" format="boolean" />
-        <!-- When set to true or when fillEnabled is not set to true, the animation transformation
-             is applied before the animation has started. The default value is true. -->
-        <attr name="fillBefore" format="boolean" />
-        <!-- When set to true, the animation transformation is applied after the animation is
-             over. The default value is false. If fillEnabled is not set to true and the
-             animation is not set on a View, fillAfter is assumed to be true.-->
-        <attr name="fillAfter" format="boolean" />
-        <!-- Amount of time (in milliseconds) for the animation to run. -->
-        <attr name="duration" format="integer" />
-        <!-- Delay in milliseconds before the animation runs, once start time is reached. -->
-        <attr name="startOffset" format="integer" />
-        <!-- Defines how many times the animation should repeat. The default value is 0. -->
-        <attr name="repeatCount" format="integer">
-            <enum name="infinite" value="-1" />
-        </attr>
-        <!-- Defines the animation behavior when it reaches the end and the repeat count is
-             greater than 0 or infinite. The default value is restart. -->
-        <attr name="repeatMode">
-            <!-- The animation starts again from the beginning. -->
-            <enum name="restart" value="1" />
-            <!-- The animation plays backward. -->
-            <enum name="reverse" value="2" />
-        </attr>
-        <!-- Allows for an adjustment of the Z ordering of the content being
-             animated for the duration of the animation.  The default value is normal. -->
-        <attr name="zAdjustment">
-            <!-- The content being animated be kept in its current Z order. -->
-            <enum name="normal" value="0" />
-            <!-- The content being animated is forced on top of all other
-                 content for the duration of the animation. -->
-            <enum name="top" value="1" />
-            <!-- The content being animated is forced under all other
-                 content for the duration of the animation. -->
-            <enum name="bottom" value="-1" />
-        </attr>
-        <!-- Special background behind animation.  Only for use with window
-             animations.  Can only be a color, and only black.  If 0, the
-             default, there is no background. -->
-        <attr name="background" format="reference|color" />
-        <!-- Special option for window animations: if this window is on top
-             of a wallpaper, don't animate the wallpaper with it. -->
-        <attr name="detachWallpaper" format="boolean" />
-    </declare-styleable>
-
-    <declare-styleable name="AnimationSet">
-        <attr name="shareInterpolator" format="boolean" />
-        <attr name="fillBefore" />
-        <attr name="fillAfter" />
-        <attr name="duration" />
-        <attr name="startOffset" />
-        <attr name="repeatMode" />
-    </declare-styleable>
     
     <declare-styleable name="AccelerateInterpolator">
         <!-- This is the amount of deceleration to add when easing in. -->
@@ -97,16 +39,23 @@
 
     <declare-styleable name="Animator">
         <!-- Defines the interpolator used to smooth the animation movement in time. -->
-        <attr name="interpolator" />
+        <attr name="interpolator" format="reference" />
         <!-- Amount of time (in milliseconds) for the animation to run. -->
-        <attr name="duration" />
+        <attr name="duration" format="integer" />
         <!-- Delay in milliseconds before the animation runs, once start time is reached. -->
-        <attr name="startOffset"/>
-        <!-- Defines how many times the animation should repeat. The default value is 0. -->
-        <attr name="repeatCount"/>
+        <attr name="startOffset"  format="integer" />
+         <!-- Defines how many times the animation should repeat. The default value is 0. -->
+        <attr name="repeatCount" format="integer">
+            <enum name="infinite" value="-1" />
+        </attr>
         <!-- Defines the animation behavior when it reaches the end and the repeat count is
              greater than 0 or infinite. The default value is restart. -->
-        <attr name="repeatMode"/>
+        <attr name="repeatMode">
+            <!-- The animation starts again from the beginning. -->
+            <enum name="restart" value="1" />
+            <!-- The animation plays backward. -->
+            <enum name="reverse" value="2" />
+        </attr>
         <!-- Value the animation starts from. -->
         <attr name="valueFrom" format="float|integer|color|dimension"/>
         <!-- Value the animation animates to. -->
