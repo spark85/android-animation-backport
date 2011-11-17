@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Animation">
+        <!-- Defines the interpolator used to smooth the animation movement in time. -->
+        <attr name="interpolator" format="reference"/>
+        <!-- When set to true, the value of fillBefore is taken into account. -->
+        <attr name="fillEnabled" format="boolean" />
+        <!-- When set to true or when fillEnabled is not set to true, the animation transformation
+             is applied before the animation has started. The default value is true. -->
+        <attr name="fillBefore" format="boolean" />
+        <!-- When set to true, the animation transformation is applied after the animation is
+             over. The default value is false. If fillEnabled is not set to true and the
+             animation is not set on a View, fillAfter is assumed to be true.-->
+        <attr name="fillAfter" format="boolean" />
+        <!-- Amount of time (in milliseconds) for the animation to run. -->
+        <attr name="duration" format="integer" />
+        <!-- Delay in milliseconds before the animation runs, once start time is reached. -->
+        <attr name="startOffset" format="integer" />
+        <!-- Defines how many times the animation should repeat. The default value is 0. -->
+        <attr name="repeatCount" format="integer">
+            <enum name="infinite" value="-1" />
+        </attr>
+        <!-- Defines the animation behavior when it reaches the end and the repeat count is
+             greater than 0 or infinite. The default value is restart. -->
+        <attr name="repeatMode">
+            <!-- The animation starts again from the beginning. -->
+            <enum name="restart" value="1" />
+            <!-- The animation plays backward. -->
+            <enum name="reverse" value="2" />
+        </attr>
+        <!-- Allows for an adjustment of the Z ordering of the content being
+             animated for the duration of the animation.  The default value is normal. -->
+        <attr name="zAdjustment">
+            <!-- The content being animated be kept in its current Z order. -->
+            <enum name="normal" value="0" />
+            <!-- The content being animated is forced on top of all other
+                 content for the duration of the animation. -->
+            <enum name="top" value="1" />
+            <!-- The content being animated is forced under all other
+                 content for the duration of the animation. -->
+            <enum name="bottom" value="-1" />
+        </attr>
+        <!-- Special background behind animation.  Only for use with window
+             animations.  Can only be a color, and only black.  If 0, the
+             default, there is no background. -->
+        <attr name="background" format="reference|color" />
+        <!-- Special option for window animations: if this window is on top
+             of a wallpaper, don't animate the wallpaper with it. -->
+        <attr name="detachWallpaper" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimationSet">
+        <attr name="shareInterpolator" format="boolean" />
+        <attr name="fillBefore" />
+        <attr name="fillAfter" />
+        <attr name="duration" />
+        <attr name="startOffset" />
+        <attr name="repeatMode" />
+    </declare-styleable>
+    
+    <declare-styleable name="AccelerateInterpolator">
+        <!-- This is the amount of deceleration to add when easing in. -->
+        <attr name="factor" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="DecelerateInterpolator">
+        <!-- This is the amount of acceleration to add when easing out. -->
+        <attr name="factor" />
+    </declare-styleable>
+
+    <declare-styleable name="CycleInterpolator">
+        <attr name="cycles" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="AnticipateInterpolator">
+        <!-- This is the amount of tension. -->
+        <attr name="tension" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="OvershootInterpolator">
+        <!-- This is the amount of tension. -->
+        <attr name="tension" />
+    </declare-styleable>
+
+    <declare-styleable name="AnticipateOvershootInterpolator">
+        <!-- This is the amount of tension. -->
+        <attr name="tension" />
+        <!-- This is the amount by which to multiply the tension. -->
+        <attr name="extraTension" format="float" />
+    </declare-styleable>
+
+    <!-- ========================== -->
+    <!-- ValueAnimator class attributes -->
+    <!-- ========================== -->
+    <eat-comment />
+
+    <declare-styleable name="Animator">
+        <!-- Defines the interpolator used to smooth the animation movement in time. -->
+        <attr name="interpolator" />
+        <!-- Amount of time (in milliseconds) for the animation to run. -->
+        <attr name="duration" />
+        <!-- Delay in milliseconds before the animation runs, once start time is reached. -->
+        <attr name="startOffset"/>
+        <!-- Defines how many times the animation should repeat. The default value is 0. -->
+        <attr name="repeatCount"/>
+        <!-- Defines the animation behavior when it reaches the end and the repeat count is
+             greater than 0 or infinite. The default value is restart. -->
+        <attr name="repeatMode"/>
+        <!-- Value the animation starts from. -->
+        <attr name="valueFrom" format="float|integer|color|dimension"/>
+        <!-- Value the animation animates to. -->
+        <attr name="valueTo" format="float|integer|color|dimension"/>
+        <!-- The type of valueFrom and valueTo. -->
+        <attr name="valueType">
+            <!-- valueFrom and valueTo are floats. This is the default value is valueType is
+                 unspecified. Note that if either valueFrom or valueTo represent colors
+                 (beginning with "#"), then this attribute is ignored and the color values are
+                 interpreted as integers. -->
+            <enum name="floatType" value="0" />
+            <!-- valueFrom and valueTo are integers. -->
+            <enum name="intType"   value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!-- ========================== -->
+    <!-- ObjectAnimator class attributes -->
+    <!-- ========================== -->
+    <eat-comment />
+
+    <declare-styleable name="PropertyAnimator">
+        <!-- Name of the property being animated. -->
+        <attr name="propertyName" format="string"/>
+    </declare-styleable>
+
+
+    <!-- ========================== -->
+    <!-- AnimatorSet class attributes -->
+    <!-- ========================== -->
+    <eat-comment />
+
+    <declare-styleable name="AnimatorSet">
+        <!-- Name of the property being animated. -->
+        <attr name="ordering">
+            <!-- child animations should be played together. -->
+            <enum name="together" value="0" />
+            <!-- child animations should be played sequentially, in the same order as the xml. -->
+            <enum name="sequentially" value="1" />
+        </attr>
+    </declare-styleable>
+        
+</resources>
